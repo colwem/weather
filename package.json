@@ -14,5 +14,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Martin Colwell",
-  "license": "ISC"
+  "license": "ISC",
+  "bin": {
+    "weather": "./index.js"
+  },
+  "repository": "https://github.com/colwem/weather.git"
 }
