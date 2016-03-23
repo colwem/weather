@@ -1,0 +1,11 @@
+{
+  "apis": {
+    "openWeatherMap": {
+      "key": "6511ca43550983fb562ace0bd652cbb8",
+      "url": "http://api.openweathermap.org/data/2.5/forecast/daily"
+    },
+    "wunderground": {
+      "key": "4586cd9aa8c8b365",
+      "url": "http://api.wunderground.com/api/"
+  }
+}

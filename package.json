@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "async": "^1.5.2",
+    "commander": "^2.9.0",
     "lodash": "^4.6.1",
     "url-join": "0.0.1",
     "weather": "^0.1.0"
