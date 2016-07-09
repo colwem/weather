@@ -101,7 +101,7 @@ const Schedule = {
       b2 = t2.findIndex( r2 => equalOnKeys(columns, r1, r2));
 
       let i = b2;
-      while( equalOnKeys(columns, r1, t2.get(i)) && i < t2.size) {
+      while(i < t2.size && equalOnKeys(columns, r1, t2.get(i))) {
         t3 = t3.push(_.assign(_.clone(r1), t2.get(i)));
         i++;
       }
@@ -144,8 +144,10 @@ function maxCount(d) {
 }
 
 function equalOnKeys(keys, o1, o2) {
-
-  return _.isEqual(_.pick(o1, keys), _.pick(o2, keys));
+  for(let key of keys) {
+    if( o1[key] !== o2[key] ) return false;
+  }
+  return true;
 }
 
 function compareOnKeys(keys, o1, o2) {
@@ -164,5 +166,6 @@ function commonKeys(o1, o2) {
 }
 
 createSchedule.maxCount = maxCount;
+createSchedule.equalOnKeys = equalOnKeys;
 
 module.exports = createSchedule;
