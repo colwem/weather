@@ -22,7 +22,7 @@ function constraintsFromList(list, n) {
   return pairs(list).map(([a, b]) => {
     const ae = Event(a, n),
           be = Event(b, n),
-          rule = (a, b) => true;
+          rule = (a, b) => a !== b;
 
     return Constraint.simple(ae, be, rule);
   });

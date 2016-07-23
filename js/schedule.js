@@ -96,12 +96,11 @@ const Schedule = {
 
     while(b1 < t1.size && b2 < t2.size) {
       const r1 = t1.get(b1);
-      const v = _.pick(r1, columns);
-
-      b2 = t2.findIndex( r2 => equalOnKeys(columns, r1, r2));
+      const eok = equalOnKeys.bind(null, columns, r1);
+      b2 = t2.findIndex(eok);
 
       let i = b2;
-      while(i < t2.size && equalOnKeys(columns, r1, t2.get(i))) {
+      while(i < t2.size && eok(t2.get(i))) {
         t3 = t3.push(_.assign(_.clone(r1), t2.get(i)));
         i++;
       }
@@ -144,8 +143,11 @@ function maxCount(d) {
 }
 
 function equalOnKeys(keys, o1, o2) {
-  for(let key of keys) {
-    if( o1[key] !== o2[key] ) return false;
+  let i;
+  for(i = 0; i < keys.length; i++) {
+    if( o1[keys[i]] !== o2[keys[i]] ){
+      return false;
+    }
   }
   return true;
 }
